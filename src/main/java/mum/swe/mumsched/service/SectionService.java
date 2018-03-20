@@ -5,10 +5,6 @@ import java.util.Set;
 
 import mum.swe.mumsched.model.Section;
 
-/**
- * @author Brian Nguyen
- * @date Jan 31, 2018
- */
 public interface SectionService {
 
 	Iterable<Section> getList();

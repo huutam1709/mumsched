@@ -26,14 +26,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
-/**
- * @author Brian Nguyen
- * @date Jan 24, 2018
- */
-/**
- * @author Brian Nguyen
- * @date Jan 28, 2018
- */
 @Entity
 @Table(name="entry")
 public class Entry {

@@ -4,10 +4,6 @@ import java.util.List;
 
 import mum.swe.mumsched.model.Section;
 
-/**
- * @author Mandakh Nyamdavaa
- * @date Feb 04, 2018
- */
 interface RegisterSectionService {
 	Iterable<Section> getList();
 

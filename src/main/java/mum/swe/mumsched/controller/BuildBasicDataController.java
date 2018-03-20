@@ -28,10 +28,6 @@ import mum.swe.mumsched.service.EntryService;
 import mum.swe.mumsched.service.FacultyService;
 import mum.swe.mumsched.service.UserService;
 
-/**
- * @author Huu Tam Huynh
- * @date Fed 5, 2018
- */
 @Controller
 @Secured("ROLE_ADMIN")
 @RequestMapping(path = "build")

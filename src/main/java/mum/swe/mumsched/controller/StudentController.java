@@ -16,10 +16,6 @@ import mum.swe.mumsched.service.EntryService;
 import mum.swe.mumsched.service.StudentService;
 import mum.swe.mumsched.validator.UserValidator;
 
-/**
- * @author Mandakh Nyamdavaa
- * @date Jan 28, 2018
- */
 
 @Controller
 public class StudentController {

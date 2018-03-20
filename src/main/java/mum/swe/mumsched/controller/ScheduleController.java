@@ -29,10 +29,6 @@ import mum.swe.mumsched.service.SectionService;
 import mum.swe.mumsched.service.UserService;
 import mum.swe.mumsched.validator.UserValidator;
 
-/**
- * @author Huu Tam Huynh
- * @date Fed 5, 2018
- */
 @Secured("ROLE_ADMIN")
 @RequestMapping(path = "/schedule")
 @Controller

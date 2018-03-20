@@ -17,10 +17,6 @@ import mum.swe.mumsched.model.User;
 import mum.swe.mumsched.service.UserService;
 import mum.swe.mumsched.validator.UserValidator;
 
-/**
- * @author Batjargal Bayarsaikhan (Alex)
- * @date Jan 25, 2018
- */
 @Controller
 @Secured("ROLE_ADMIN")
 public class UserController {

@@ -21,10 +21,6 @@ import mum.swe.mumsched.util.MUtils;
 import mum.swe.mumsched.validator.UserValidator;
 import mum.swe.mumsched.view.ForgotPasswordView;
 
-/**
- * @author Batjargal Bayarsaikhan (Alex)
- * @date Jan 24, 2018
- */
 @Controller
 //@Configuration
 public class LoginController {

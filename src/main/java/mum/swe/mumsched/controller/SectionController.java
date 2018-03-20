@@ -38,10 +38,6 @@ import mum.swe.mumsched.service.FacultyService;
 import mum.swe.mumsched.service.MessageByLocaleService;
 import mum.swe.mumsched.service.ScheduleService;
 
-/**
- * @author Brian Nguyen
- * @date Jan 31, 2018
- */
 @Secured("ROLE_ADMIN")
 @RequestMapping(path = "/section")
 @Controller

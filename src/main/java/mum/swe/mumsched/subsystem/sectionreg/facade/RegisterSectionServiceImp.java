@@ -13,10 +13,6 @@ import mum.swe.mumsched.model.Schedule;
 import mum.swe.mumsched.model.Section;
 import mum.swe.mumsched.service.ScheduleService;
 
-/**
- * @author Mandakh Nyamdavaa
- * @date Feb 04, 2018
- */
 @Service
 class RegisterSectionServiceImp implements RegisterSectionService{
 	@Autowired

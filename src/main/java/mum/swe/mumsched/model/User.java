@@ -14,10 +14,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import mum.swe.mumsched.enums.RoleEnum;
 
-/**
- * @author Batjargal Bayarsaikhan (Alex)
- * @date Jan 23, 2018
- */
 @Entity
 @Table(name = "users")
 public class User {

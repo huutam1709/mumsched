@@ -12,10 +12,7 @@ import mum.swe.mumsched.repository.StudentRepository;
 import mum.swe.mumsched.service.StudentService;
 import mum.swe.mumsched.service.UserService;
 
-/**
- * @author Batjargal Bayarsaikhan (Alex)
- * Jan 25, 2018
- */
+
 @Service("studentService")
 public class StudentServiceImpl  implements StudentService {
     @Autowired

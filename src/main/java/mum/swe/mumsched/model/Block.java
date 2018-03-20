@@ -25,10 +25,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import mum.swe.mumsched.enums.MonthEnum;
 
-/**
- * @author Brian Nguyen
- * @date Jan 31, 2018
- */
+
 @Entity
 @Table(name="block")
 public class Block {

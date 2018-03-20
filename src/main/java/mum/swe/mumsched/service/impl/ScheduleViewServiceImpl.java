@@ -9,10 +9,7 @@ import mum.swe.mumsched.model.Schedule;
 import mum.swe.mumsched.repository.ScheduleViewRepository;
 import mum.swe.mumsched.service.ScheduleViewService;
 
-/**
- * @author Mandakh Nyamdavaa
- * @date Feb 06, 2018
- */
+
 @Service
 public class ScheduleViewServiceImpl implements ScheduleViewService{
 	@Autowired
