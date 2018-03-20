@@ -82,7 +82,7 @@ public class ScheduleController {
 
 	@GetMapping("/view/{id}")
 	public String view(@PathVariable("id") Long id, Model model) {
-
+		System.out.println("view one schedule:" + id);
 		Schedule schedule = scheduleService.findOneById(id);
 		LinkedHashSet<Block> reOrderedBlock = new LinkedHashSet<Block>(schedule.getBlockList().stream().sorted(Comparator.comparing(Block::getId)).collect(Collectors.toList()));
 		schedule.setBlockList(reOrderedBlock);

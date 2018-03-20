@@ -23,11 +23,15 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import mum.swe.mumsched.enums.MonthEnum;
 
 
 @Entity
 @Table(name="block")
+@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class,property="id")
 public class Block {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

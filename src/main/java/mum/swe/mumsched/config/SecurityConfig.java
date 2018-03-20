@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     	//System.out.println("go here");
        http
         .authorizeRequests()
-    		.antMatchers("/login*", "/signup*", "/forgot-password*", "/api/entries/*").permitAll() 
+    		.antMatchers("/login*", "/signup*", "/forgot-password*", "/api/entries/*", "/api/schedules/*", "/api/schedules/view/*").permitAll() 
             //.antMatchers("/users/**").hasAuthority("ROLE_ADMIN")
             .anyRequest().fullyAuthenticated()
             .and()
