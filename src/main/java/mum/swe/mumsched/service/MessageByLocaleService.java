@@ -2,12 +2,6 @@ package mum.swe.mumsched.service;
 
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-/**
- * @author Brian Nguyen
- * @date Jan 26, 2018
- * @url http://codedevstuff.blogspot.com/2015/05/spring-boot-internationalization-with.html
- * @note from advice of Alex
- */
 public interface MessageByLocaleService {
 	
 	public static final String MESSAGE_ATTRIBUTE = "message";

@@ -15,10 +15,7 @@ import mum.swe.mumsched.repository.FacultyRepository;
 import mum.swe.mumsched.service.FacultyService;
 import mum.swe.mumsched.service.UserService;
 
-/**
- * @author Batjargal Bayarsaikhan (Alex)
- * Jan 25, 2018
- */
+
 @Service("facultyService")
 public class FacultyServiceImpl  implements FacultyService {
     @Autowired

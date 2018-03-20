@@ -10,12 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import mum.swe.mumsched.service.MessageByLocaleService;
 
-/**
- * @author Brian Nguyen
- * @date Jan 26, 2018
- * @url http://codedevstuff.blogspot.com/2015/05/spring-boot-internationalization-with.html
- * @note from advice of Alex
- */
+
 @Component
 public class MessageByLocaleServiceImpl implements MessageByLocaleService {
 

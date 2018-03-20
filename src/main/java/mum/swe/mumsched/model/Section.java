@@ -14,10 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-/**
- * @author Brian Nguyen
- * @date Jan 31, 2018
- */
 @Entity
 @Table(name="section")
 public class Section {

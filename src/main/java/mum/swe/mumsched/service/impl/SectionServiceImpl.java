@@ -13,10 +13,7 @@ import mum.swe.mumsched.model.Section;
 import mum.swe.mumsched.repository.SectionRepository;
 import mum.swe.mumsched.service.SectionService;
 
-/**
- * @author Brian Nguyen
- * @date Jan 31, 2018
- */
+
 @Service
 public class SectionServiceImpl implements SectionService {
 	@Autowired

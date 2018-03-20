@@ -3,10 +3,6 @@ package mum.swe.mumsched.helper;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author Brian Nguyen
- * @date Jan 25, 2018
- */
 public class AjaxResult{
 	private boolean isSuccess;
 	private String message;

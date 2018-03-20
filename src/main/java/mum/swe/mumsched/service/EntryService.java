@@ -4,10 +4,6 @@ import java.util.List;
 
 import mum.swe.mumsched.model.Entry;
 
-/**
- * @author Brian Nguyen
- * @date Jan 25, 2018
- */
 public interface EntryService {
 
 	List<Entry> getList();

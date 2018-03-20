@@ -9,10 +9,7 @@ import mum.swe.mumsched.model.Block;
 import mum.swe.mumsched.model.Course;
 import mum.swe.mumsched.model.Entry;
 import mum.swe.mumsched.model.Faculty;
-/**
- * @author Huu Tam Huynh
- * @date Feb 5, 2018
- */
+
 public interface ScheduleService {
 
 	Iterable<Schedule> findAll();

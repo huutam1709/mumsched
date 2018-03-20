@@ -22,10 +22,7 @@ import javax.persistence.Table;
 
 import mum.swe.mumsched.enums.MonthEnum;
 
-/**
- * @author Batjargal Bayarsaikhan (Alex)
- * @date Jan 25, 2018
- */
+
 @Entity
 @Table(name = "faculties")
 public class Faculty {

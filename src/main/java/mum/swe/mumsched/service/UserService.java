@@ -8,10 +8,6 @@ import org.springframework.data.domain.Pageable;
 import mum.swe.mumsched.enums.RoleEnum;
 import mum.swe.mumsched.model.User;
 
-/**
- * @author Batjargal Bayarsaikhan (Alex)
- * Jan 23, 2018
- */
 public interface UserService {
     User findByUsername(String username);
     
