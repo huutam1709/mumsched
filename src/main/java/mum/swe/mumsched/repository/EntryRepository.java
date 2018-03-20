@@ -9,10 +9,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import mum.swe.mumsched.model.Entry;
 
-/**
- * @author Brian Nguyen
- * @date Jan 25, 2018
- */
 @Repository
 public interface EntryRepository extends CrudRepository<Entry, Long> {
 	@Query("SELECT e FROM Entry e")

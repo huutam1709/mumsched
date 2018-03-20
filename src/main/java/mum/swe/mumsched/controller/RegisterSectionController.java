@@ -19,10 +19,6 @@ import mum.swe.mumsched.model.Section;
 import mum.swe.mumsched.model.Student;
 import mum.swe.mumsched.service.StudentService;
 
-/**
- * @author Mandakh Nyamdavaa
- * @date Feb 04, 2018
- */
 @Controller
 public class RegisterSectionController {
 

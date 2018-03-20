@@ -15,10 +15,7 @@ import mum.swe.mumsched.model.Section;
 import mum.swe.mumsched.repository.BlockRepository;
 import mum.swe.mumsched.service.BlockService;
 
-/**
- * @author Brian Nguyen
- * @date Jan 31, 2018
- */
+
 @Service
 public class BlockServiceImpl implements BlockService {
 	@Autowired

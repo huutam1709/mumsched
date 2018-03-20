@@ -11,10 +11,7 @@ import mum.swe.mumsched.model.Entry;
 import mum.swe.mumsched.repository.EntryRepository;
 import mum.swe.mumsched.service.EntryService;
 
-/**
- * @author Brian Nguyen
- * @date Jan 25, 2018
- */
+
 @Service
 public class EntryServiceImpl implements EntryService {
 	@Autowired

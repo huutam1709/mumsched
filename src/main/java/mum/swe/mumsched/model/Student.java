@@ -12,10 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-/**
- * @author Batjargal Bayarsaikhan (Alex)
- * @date Jan 25, 2018
- */
 @Entity
 @Table(name = "students")
 public class Student {

@@ -30,14 +30,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 
-/**
- * @author Brian Nguyen
- * @date Jan 24, 2018
- */
-/**
- * @author Brian Nguyen
- * @date Jan 28, 2018
- */
 @Entity
 @Table(name="entry")
 @JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@aid")

@@ -13,10 +13,7 @@ import mum.swe.mumsched.model.User;
 import mum.swe.mumsched.repository.UserRepository;
 import mum.swe.mumsched.service.UserService;
 
-/**
- * @author Batjargal Bayarsaikhan (Alex)
- * Jan 23, 2018
- */
+
 @Service("userService")
 public class UserServiceImpl  implements UserService {
     @Autowired

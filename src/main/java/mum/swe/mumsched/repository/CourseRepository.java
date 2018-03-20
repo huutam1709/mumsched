@@ -7,10 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import mum.swe.mumsched.model.Course;
 
-/**
- * @author Mandakh Nyamdavaa
- * Jan 28, 2018
- */
 @Repository("courseRepository")
 public interface CourseRepository extends JpaRepository<Course, Long> {
 	

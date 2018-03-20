@@ -14,13 +14,15 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import mum.swe.mumsched.enums.ScheduleStatusEnum;
 
 @Entity
 @Table(name="schedule")
-@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
+//@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
+@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class,property="id")
 public class Schedule {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -30,9 +32,11 @@ public class Schedule {
     @Column(columnDefinition = "smallint")
 	private ScheduleStatusEnum status;
 	
+	//@JsonIgnore
 	@OneToOne
 	private Entry entry;
 	
+	//@JsonIgnore
 	@OneToMany(mappedBy="schedule", cascade=CascadeType.ALL)
 	private Set<Block> blockList;
 

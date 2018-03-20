@@ -29,10 +29,6 @@ import mum.swe.mumsched.service.SectionService;
 import mum.swe.mumsched.service.UserService;
 import mum.swe.mumsched.validator.UserValidator;
 
-/**
- * @author Huu Tam Huynh
- * @date Fed 5, 2018
- */
 @Secured("ROLE_ADMIN")
 @RequestMapping(path = "/schedule")
 @Controller
@@ -86,7 +82,7 @@ public class ScheduleController {
 
 	@GetMapping("/view/{id}")
 	public String view(@PathVariable("id") Long id, Model model) {
-
+		System.out.println("view one schedule:" + id);
 		Schedule schedule = scheduleService.findOneById(id);
 		LinkedHashSet<Block> reOrderedBlock = new LinkedHashSet<Block>(schedule.getBlockList().stream().sorted(Comparator.comparing(Block::getId)).collect(Collectors.toList()));
 		schedule.setBlockList(reOrderedBlock);

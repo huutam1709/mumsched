@@ -26,10 +26,6 @@ import mum.swe.mumsched.service.CourseService;
 import mum.swe.mumsched.service.EntryService;
 import mum.swe.mumsched.service.ScheduleService;
 
-/**
- * @author Tam Huynh
- * @date Feb 5, 2018
- */
 @Service
 public class ScheduleServiceImpl implements ScheduleService {
 	@Autowired

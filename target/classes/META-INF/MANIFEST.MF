@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: mumsched
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: Truong Dung
+Built-By: mengjiao
 Implementation-Vendor-Id: mum.swe
-Build-Jdk: 1.8.0_144
+Build-Jdk: 1.8.0_51
 Implementation-URL: http://projects.spring.io/spring-boot/mumsched/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.
