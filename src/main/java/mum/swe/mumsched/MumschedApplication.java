@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 @Configuration
 @SpringBootApplication
 @EnableAutoConfiguration
+@EnableAspectJAutoProxy
 @ComponentScan("mum.swe.mumsched")
 public class MumschedApplication extends WebMvcConfigurerAdapter {
 
@@ -42,4 +44,5 @@ public class MumschedApplication extends WebMvcConfigurerAdapter {
 	    lci.setParamName("lang");
 	    return lci;
 	}
+
 }

@@ -29,6 +29,7 @@ public class EntryRestController {
 	
 	@RequestMapping("/stringtest")
 	public String test() {
+		System.out.println("hi");
 		return "String test";
 	}
 }
