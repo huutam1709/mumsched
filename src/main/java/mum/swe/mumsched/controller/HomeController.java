@@ -15,10 +15,7 @@ import mum.swe.mumsched.service.DashboardService;
 import mum.swe.mumsched.service.UserService;
 import mum.swe.mumsched.view.DashboardView;
 
-/**
- * @author Batjargal Bayarsaikhan (Alex)
- * @date Jan 24, 2018
- */
+
 @Controller
 public class HomeController {
 
