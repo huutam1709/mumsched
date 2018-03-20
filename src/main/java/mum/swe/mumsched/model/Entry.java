@@ -25,9 +25,14 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 
 @Entity
 @Table(name="entry")
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@aid")
 public class Entry {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -54,17 +59,21 @@ public class Entry {
 	private int fppCPT;
 	private int fppOPT;
 	
+	@JsonIgnore
 	@OneToOne(mappedBy="entry")
 	private Schedule schedule;
 	
+	 @JsonIgnore
 	@ManyToMany()
 	@JoinTable(name = "entry_faculty", joinColumns = @JoinColumn(name = "entry_id"), inverseJoinColumns = @JoinColumn(name = "faculty_id"))
 	private Set<Faculty> facultyList;
 	
+	 @JsonIgnore
 	@ManyToMany()
 	@JoinTable(name = "entry_course", joinColumns = @JoinColumn(name = "entry_id"), inverseJoinColumns = @JoinColumn(name = "course_id"))
 	private Set<Course> courseList;
 	
+	 @JsonIgnore
 	@OneToMany(mappedBy="entry", cascade=CascadeType.ALL)
 	private Set<Student> studentList;
 	
