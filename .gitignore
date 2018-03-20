@@ -2,8 +2,8 @@
 *.class
 
 # app properties
-src/main/resources/application.properties
-
+/src/main/resources/application.properties
+*.properties
 # Log file
 *.log
 
