@@ -1,6 +1,11 @@
 package mum.swe.mumsched.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -70,5 +75,25 @@ public class Schedule {
 
 	public void setBlockList(Set<Block> blockList) {
 		this.blockList = blockList;
+	}
+	
+	public List<BlockSimple> getBlockSimple(){	
+		List<BlockSimple> blocks = new ArrayList<BlockSimple>();
+		Set<Block> blockList = this.getBlockList().stream().sorted(Comparator.comparing(Block::getId)).collect(Collectors.toSet());
+		
+		for(Block b : blockList) {
+			String result = "";
+			Set<Section> ss = b.getSectionList();
+			BlockSimple bl = new BlockSimple();
+			bl.setMonth(b.getMonth());
+		    for(Section s: ss) {
+		    	Course c = s.getCourse();
+		    	Faculty f = s.getFaculty();
+		    	result += c.getCode() + " " + c.getName() + " - " + f.getUser().getFullname() + "\n" ;
+		    }
+		    bl.setCourseName(result);
+		    blocks.add(bl);
+		}
+		return blocks;
 	}
 }
