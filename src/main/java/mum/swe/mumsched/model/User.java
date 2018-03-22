@@ -26,6 +26,7 @@ public class User {
 	@NotEmpty(message = "*Please provide an email")
     private String username;
 	
+	@NotEmpty(message = "*Please provide password")
     private String password;
 
     private String firstName;
@@ -37,11 +38,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private RoleEnum role;
     
-    
-    /**
-     * @return
-     * @author brian
-     */
+
     public String getFullname() {
     		return String.format("%s %s", getFirstName(), getLastName());
     }
