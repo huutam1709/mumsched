@@ -20,16 +20,12 @@ public class EntryRestController {
 	
 	@RequestMapping("/")
 	public List<Entry> findAll() {
-		System.out.println("111");
 		List<Entry> entyList = service.getList();
-		System.out.println("222");
-		//System.out.println(entyList.size());
 		return entyList;
 	}
 	
 	@RequestMapping("/stringtest")
 	public String test() {
-		System.out.println("hi");
 		return "String test";
 	}
 }

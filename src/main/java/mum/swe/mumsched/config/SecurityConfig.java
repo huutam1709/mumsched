@@ -14,7 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled=false)
+@EnableGlobalMethodSecurity(securedEnabled=true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
@@ -31,11 +31,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {     
     	//System.out.println("go here");
+    	//http.csrf().disable().headers().frameOptions().disable();
+    	
        http
         .authorizeRequests()
-    		.antMatchers("/login*", "/signup*", "/forgot-password*", "/api/entries/*", "/api/schedules/*", "/api/schedules/view/*").permitAll() 
+    		.antMatchers("/login*", "/signup*", "/forgot-password*", "/api/entries/*", "/api/schedules/*", "/api/schedules/view/*","/api/schedules/update/*").permitAll()
+    		
             //.antMatchers("/users/**").hasAuthority("ROLE_ADMIN")
             .anyRequest().fullyAuthenticated()
+            
             .and()
         .formLogin()
         	.loginPage("/login")
@@ -50,6 +54,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .permitAll()
             .and()
             .rememberMe();
+       
+       
+       http.csrf().ignoringAntMatchers("/api/schedules/update/*","/login/*");
+		//http.headers().frameOptions().disable();
 
 //       http
 //               .authorizeRequests()
