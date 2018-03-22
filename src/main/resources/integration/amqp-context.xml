@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/rabbit
+        http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
+
+    <rabbit:connection-factory id="amqpConnectionFactory" host="localhost"/>
+
+    <!-- *********** DIRECT EXCHANGE ***************** -->
+    <rabbit:queue name="amqpQueueStudent" durable="true"/>
+    <rabbit:queue name="amqpQueueSectionReg" durable="true"/>
+    <rabbit:queue name="amqpQueueSectionUnReg" durable="true"/>
+    
+    <rabbit:direct-exchange delayed="false" internal="false" name="direct" durable="true">
+        <rabbit:bindings>
+            <rabbit:binding queue="amqpQueueStudent" key="student"></rabbit:binding>
+            <rabbit:binding queue="amqpQueueSectionReg" key="sectionReg"></rabbit:binding>
+            <rabbit:binding queue="amqpQueueSectionUnReg" key="sectionUnReg"></rabbit:binding>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+
+    <!-- **************** DIRECT PRODUCER  -->
+    <rabbit:template id="directStudentTemplate" connection-factory="amqpConnectionFactory"
+                     reply-timeout="2000" routing-key="student"
+                     exchange="direct" />
+
+    <rabbit:template id="directSectionRegTemplate" connection-factory="amqpConnectionFactory"
+                     reply-timeout="2000" routing-key="sectionReg"
+                     exchange="direct" />
+	
+	 <rabbit:template id="directSectionUnRegTemplate" connection-factory="amqpConnectionFactory"
+                     reply-timeout="2000" routing-key="sectionUnReg"
+                     exchange="direct" />
+	 
+</beans>

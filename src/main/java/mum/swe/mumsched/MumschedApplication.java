@@ -19,7 +19,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 @SpringBootApplication
 @EnableAutoConfiguration
 @EnableAspectJAutoProxy
-@ComponentScan("mum.swe.mumsched")
+@ComponentScan("mum.swe.mumsched, edu.mum")
 public class MumschedApplication extends WebMvcConfigurerAdapter {
 
 	public static void main(String[] args) {

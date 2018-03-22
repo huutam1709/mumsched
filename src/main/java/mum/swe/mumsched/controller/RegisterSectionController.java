@@ -2,6 +2,7 @@ package mum.swe.mumsched.controller;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,13 +16,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.mum.eai.service.AmqpSectionRegService;
 import mum.swe.mumsched.model.Section;
 import mum.swe.mumsched.model.Student;
+import mum.swe.mumsched.service.SectionService;
 import mum.swe.mumsched.service.StudentService;
 
 @Controller
 public class RegisterSectionController {
 
+	@Autowired
+	private AmqpSectionRegService amqpSectionRegService;
+	@Autowired
+	private SectionService sectionService;
+	
 	@Autowired
 	private StudentService studentService;
 	@Autowired
@@ -34,7 +42,8 @@ public class RegisterSectionController {
 		model.addAttribute("sectionList", ISectionRegSubsystem.getSections(student.getEntry().getId()));
 
 		List<Long> mySections = student.getSectionList().stream()
-				.mapToLong(x->x.getId()).boxed()
+				.mapToLong(x->x.getId())
+				.boxed()
 				.collect(Collectors.toList());
 		
 		model.addAttribute("mySections", mySections);
@@ -53,6 +62,9 @@ public class RegisterSectionController {
 		
 		student.getSectionList().add(sectionDB);
 		studentService.save(student);
+		
+		// broadcast AMQP message
+		amqpSectionRegService.publish(student, sectionDB, true);
 		
 		return "redirect:/registerforsection";
 	}
@@ -76,6 +88,9 @@ public class RegisterSectionController {
 			student.setSectionList(new HashSet(sections));
 		}
 		studentService.save(student);	
+		
+		// broadcast AMQP message
+		amqpSectionRegService.publish(student, sectionService.findSectionById(section.getId()), false);
 		
 		return "redirect:/registerforsection";
 	}

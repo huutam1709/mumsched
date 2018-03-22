@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.mum.eai.service.AmqpStudentService;
 import mum.swe.mumsched.enums.RoleEnum;
 import mum.swe.mumsched.model.Student;
 import mum.swe.mumsched.model.User;
@@ -27,7 +28,8 @@ public class StudentAdminController {
 	private EntryService entryService;
     @Autowired
     private UserValidator userValidator;
-
+    @Autowired
+    private AmqpStudentService amqpStudentService;
 
 	@RequestMapping(value="/students", method=RequestMethod.GET)
 	public String students(Model model, Principal currentUser) {
@@ -91,6 +93,9 @@ public class StudentAdminController {
 	    studentDB.setEntry(student.getEntry());
 	    studentDB.setSectionList(student.getSectionList());
         studentService.save(studentDB);
+        
+        // broadcast AMQP message
+        amqpStudentService.publish(studentDB);
 
 		return "redirect:/students";
 	}
