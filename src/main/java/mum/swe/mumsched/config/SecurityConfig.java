@@ -3,6 +3,7 @@ package mum.swe.mumsched.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,7 +17,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled=true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
+	private static String REALM="MANA";
+	
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
@@ -35,13 +37,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
        http
         .authorizeRequests()
     		.antMatchers("/login*", "/signup*", "/forgot-password*", "/api/entries/*", "/api/schedules/*", "/api/schedules/view/*","/api/schedules/update/*").permitAll()
-    		
+    		//.realmName(REALM)
             //.antMatchers("/users/**").hasAuthority("ROLE_ADMIN")
-    		.antMatchers("/api/schedules/view/*").hasAuthority("ROLE_ADMIN")
-            .anyRequest().fullyAuthenticated()
-            
-            .and()
-        .formLogin()
+    		.antMatchers("/api/schedules/view/*").hasAuthority("ROLE_ADMIN").and().httpBasic().realmName(REALM).authenticationEntryPoint(getBasicAuthEntryPoint());
+           // http.anyRequest().fullyAuthenticated()
+           
+            //ttp.and()
+        http.formLogin()
         	.loginPage("/login")
         	.failureUrl("/login?error")
 			.usernameParameter("username")
@@ -106,4 +108,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //				.dataSource(dataSource)
 //				.passwordEncoder(bCryptPasswordEncoder);
 //	}
+	
+	@Bean
+	public DaoAuthenticationProvider authenticationProvider() {
+		DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
+		auth.setUserDetailsService(userDetailsService);
+		auth.setPasswordEncoder(passwordEncoder());
+		return auth;
+	}
+
+	
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.authenticationProvider(authenticationProvider());
+	}
+
+	@Bean
+	public CustomBasicAuthenticationEntryPoint getBasicAuthEntryPoint(){
+		return new CustomBasicAuthenticationEntryPoint();
+	}
 }
