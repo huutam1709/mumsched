@@ -66,7 +66,7 @@ function post(url,fnSuccess, fnError){
 		url : url,
 		beforeSend : function(xhr) {
 			// authen token
-			xhr.setRequestHeader($("meta[name='_csrf_header']").attr("content"),$("meta[name='_csrf']").attr("content"));
+			//xhr.setRequestHeader($("meta[name='_csrf_header']").attr("content"),$("meta[name='_csrf']").attr("content"));
 			xhr.setRequestHeader("Accept","application/json");
 			xhr.setRequestHeader("Content-Type","application/json");
 		},
@@ -83,7 +83,7 @@ function postJson(url, data, fnSuccess, fnError){
 		dataType: 'json',
 		beforeSend : function(xhr) {
 			// authen token
-			xhr.setRequestHeader($("meta[name='_csrf_header']").attr("content"),$("meta[name='_csrf']").attr("content"));
+			//xhr.setRequestHeader($("meta[name='_csrf_header']").attr("content"),$("meta[name='_csrf']").attr("content"));
 			xhr.setRequestHeader("Accept","application/json");
 			xhr.setRequestHeader("Content-Type","application/json");
 		},

@@ -30,14 +30,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
     @Override
     protected void configure(HttpSecurity http) throws Exception {     
-    	//System.out.println("go here");
-    	//http.csrf().disable().headers().frameOptions().disable();
+    	//System.out.println("go here"); 
     	
        http
         .authorizeRequests()
     		.antMatchers("/login*", "/signup*", "/forgot-password*", "/api/entries/*", "/api/schedules/*", "/api/schedules/view/*","/api/schedules/update/*").permitAll()
     		
             //.antMatchers("/users/**").hasAuthority("ROLE_ADMIN")
+    		.antMatchers("/api/schedules/view/*").hasAuthority("ROLE_ADMIN")
             .anyRequest().fullyAuthenticated()
             
             .and()
@@ -55,9 +55,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
             .rememberMe();
        
+       	http.csrf().disable();//.ignoringAntMatchers("/api/schedules/update/*","/login/*");
+		http.headers().frameOptions().disable();
        
-       http.csrf().ignoringAntMatchers("/api/schedules/update/*","/login/*");
-		//http.headers().frameOptions().disable();
 
 //       http
 //               .authorizeRequests()
